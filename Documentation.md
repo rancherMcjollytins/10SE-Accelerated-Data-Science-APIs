@@ -3,7 +3,7 @@
 
 ###  Functional Requirements
 ### Uses APIs to load data from database (data loading)
-Program can use the [PLACEHOLDER] API to communicate with, and exchange data from the [PLACEHOLDER] database, so it can display the data for the user.
+Program can use the [NASA] API to communicate with, and exchange data from the NASA database, so it can display the data for the user.
 ### UI for users that abstracts inner workings/back-end code in visual graphics
 User does not view or interact with back-end workings of the program, and instead interacts with it through a graphical user interface with a simplistic, readable design for more accessibility.
 ### Functionality without errors and fallback option in case of issues in code.
