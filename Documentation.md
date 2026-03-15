@@ -8,17 +8,15 @@
     - User can load and view the database in different display forms (e.g. filtered data, raw data, graphs).
 ### Inputs and Outputs
 -   User Option and Filtered, Raw and Visualised Data.
-    - User interacts with the program by inputting a choice (using a CLI string or a GUI input/button) from a list of options to choose which data/data format to display. Program uses different modules for different purposes, to give user the chosen data output.
+    - User interacts with the program by inputting a choice (using GUI) from a list of options to choose which data/data format to display. Program uses different modules for different purposes, to give user the chosen data output.
     -   Program can access the [NASA] API to communicate with, and exchange data from the NASA database, so it can display the data for the user.
--   Functions from API handler/Data Module.
-    - Program can access and perform functions from other files/modules 
 
 ### Core Features
 -   The core feature of the program is using an API to exchange data between a client and a database, as well as using different tools/libraries to manipulate the data for processing and analysis.
 
 ### User Interaction
 -   GUI
-    - uses a simple GUI (made with tkinter/customtkinter) to act as the primary interface/space between the program and the user for them to react. It will need to provide buttons and intuitive navigation, as well as clear directions for using different modules/functions/processes/commands. (which one is it????)
+    - uses a simple GUI (made with tkinter/customtkinter) to act as the primary interface/space between the program and the user for them to react. It will need to provide simple, intuitive navigation, as well as clear directions for using different processes and functions.
 
 ### Error Fallback
 -   Program uses a try, except statement, as well as loops to fallback in case of unfixable/uncontrollable errors like syntax errors, missing dependencies, etc. This stops full program errors from crashing the system.
@@ -29,9 +27,9 @@
 
 ### Usability/Accessibility
 -   Aesthetically pleasing, intuitive UX (with tools like customtkinter).
-    - Aesthetically pleasing GUI with quick navigation for better usability, as well as more accessibility for users of different experience, as opposed to a CLI, which is efficient and useful, but can have a steeper learning curve.
+    - Aesthetically pleasing GUI with quick navigation for usability and accessibility for users of different experience.
 -   Easier installation of dependencies.
-    - Dependency packages and libraries are easily installed using a *'requirements.txt'* file and the pip install -r requirements.txt command in a command terminal. This will help users quickly and automatically install libraries that are essential for functionality.
+    - Dependency packages and libraries are easily installed using a *'requirements.txt'* file and the *pip install -r requirements.txt* command in a command terminal. This will help users quickly and automatically install libraries that are essential for functionality.
 
 ### Efficiency and Performance
 -   Efficient transfer of data from database and API to user.
