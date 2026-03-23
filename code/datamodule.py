@@ -1,9 +1,25 @@
+import requests, pandas, matplotlib, json
+
+API_base_url = ""
+API_key = ""
+user_data = {
+    'location':"",
+}
+
+user_options = ["Verify/Manage API Key and Depepindencies", 
+"Manage User Info", 
+"Display Data", 
+"Manage Sessions/Saves",
+"Visualise/Graph Data"]
+
 def check_dependencies():
-    """Not made yet, but will be a check for api key, dependencies,
-    API is up, etc. api key storage issues n security must be figured out
-    (dont have it stored in the source code, in anything public, etc. idk what to do about it.) possible dependencies:
-    json, requests, pandas(?), matplotlib"""
-    pass
+    userChoice = input("what would you like to check (api key or dependencies)")
+    if userChoice.strip() == 'api key':
+        print("ok 1")
+    elif userChoice.strip() == "dependencies":
+        print("ok 2")
+    else:
+        print("no work!!!!")
 
 def UserInfo():
     pass
