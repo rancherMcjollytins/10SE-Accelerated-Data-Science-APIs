@@ -11,30 +11,36 @@ API_base_url = ""
 API_key = ""
 user_data = {
     'location':"",
+    'API Key':""
 }
 
-user_options = ["Verify/Manage API Key and Dependencies", 
+
+user_options = ["Verify Dependencies", 
 "Manage User Info", 
 "Display Data", 
 "Manage Sessions/Saves",
 "Visualise/Graph Data"]
 
 def check_dependencies():
-    userChoice = input("what would you like to Verify? (API Key or Dependencies)")
-    if userChoice.strip() == 'api key':
-        print("ok 1")
-    elif userChoice.strip() == "dependencies":
-        try:
+    print("-----------------------")
+    userChoice = input("what would you like to do? (Verify Dependencies, Back)")
+    if userChoice.lower() == "dependencies":
+        try:    
             import requests, pandas, matplotlib, json
             print("all packages imported")
         except ImportError:
             print("You are missing some packages.\nReview README for info on requirements.txt.")
+    elif userChoice.lower() == "back":
+        print("Going Back")
     else:
-        print("Error, please try again! ")
+        print("Input Error, please try again! (dependencies or back).")
 
 def UserInfo():
-    UserLocation = input("Where Are You?")
-    pass
+    #.items is required to get the pairs in the dictionary
+    #(Key and Value)
+    print("-----------------------")
+    for item, data in user_data.items():
+        print(f"{item}: {data}")
     """This will be where users input their locations, keys and other similar info/files.
     This is also where users can manage what data is stored in the program.
     This is where security is more important (i believe) so im gonna need help with this."""
