@@ -2,8 +2,7 @@ from datamodule import user_options, check_dependencies, dataDisplayGeneral, dat
 from otherfunctions import slow_print
 
 def main_process():
-    check_dependencies()   
-    slow_print("Welcome to my WeatherAPI Program!")
+    slow_print("Welcome to my WeatherAPI Program!", '')
     print()
     print("-----------------------")
     while True:
@@ -11,7 +10,7 @@ def main_process():
         for index, value in enumerate(user_options, 1):
             print(f"{index}. {value}")
         print("-----------------------")
-        userChoice = input("choose")
+        userChoice = input("Option: ")
         if userChoice.strip() == "1":
             check_dependencies()
         break

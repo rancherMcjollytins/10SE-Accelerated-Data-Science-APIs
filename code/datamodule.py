@@ -1,4 +1,11 @@
-import requests, pandas, matplotlib, json
+"""Google AI explained that ImportError is 
+a built-in except that stops the program from
+ crashing if packages aren't found."""
+try:
+    import requests, pandas, matplotlib, json
+    print("Packages Found")
+except ImportError:
+    print("An error occurred with your packages/libraries. See readme for info about requirements.txt")
 
 API_base_url = ""
 API_key = ""
@@ -6,20 +13,24 @@ user_data = {
     'location':"",
 }
 
-user_options = ["Verify/Manage API Key and Depepindencies", 
+user_options = ["Verify/Manage API Key and Dependencies", 
 "Manage User Info", 
 "Display Data", 
 "Manage Sessions/Saves",
 "Visualise/Graph Data"]
 
 def check_dependencies():
-    userChoice = input("what would you like to check (api key or dependencies)")
+    userChoice = input("what would you like to Verify? (API Key or Dependencies)")
     if userChoice.strip() == 'api key':
         print("ok 1")
     elif userChoice.strip() == "dependencies":
-        print("ok 2")
+        try:
+            import requests, pandas, matplotlib, json
+            print("all packages imported")
+        except ImportError:
+            print("You are missing some packages.\nReview README for info on requirements.txt.")
     else:
-        print("no work!!!!")
+        print("Error, please try again! ")
 
 def UserInfo():
     pass

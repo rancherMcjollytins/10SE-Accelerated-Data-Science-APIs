@@ -89,3 +89,5 @@ This program should be able to verify API keys, and communicate with the *'openw
     - User inputs data they want visualised and program uses matplotlib to transform data into a graph/chart format.
 
 **Postconditions:** User can interact with a database using an API and a CLI. User can views data in the format of filtered, raw or visual information/data.
+
+How do virtual environments work?
