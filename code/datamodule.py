@@ -7,7 +7,7 @@ try:
 except ImportError:
     print("An error occurred with your packages/libraries. See readme for info about requirements.txt")
 
-API_base_url = ""
+API_base_url = "http://api.weatherapi.com/v1"
 API_key = ""
 user_data = {
     'location':"",
