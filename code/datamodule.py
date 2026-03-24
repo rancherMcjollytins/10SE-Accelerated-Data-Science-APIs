@@ -33,6 +33,7 @@ def check_dependencies():
         print("Error, please try again! ")
 
 def UserInfo():
+    UserLocation = input("Where Are You?")
     pass
     """This will be where users input their locations, keys and other similar info/files.
     This is also where users can manage what data is stored in the program.
