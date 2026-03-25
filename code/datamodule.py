@@ -8,15 +8,21 @@ except ImportError:
     print("An error occurred with your packages/libraries. See readme for info about requirements.txt")
 
 API_base_url = "http://api.weatherapi.com/v1"
-API_key = ""
+with open('apikeys.txt') as file:
+    API_key = file.read()
+
 user_data = {
     'location':"",
     'API Key':""
 }
 
+#testing
+#'w' in open is for writing format
+
 
 user_options = ["Verify Dependencies", 
-"Manage User Info", 
+"Manage User Info",
+"Fetch API", 
 "Display Data", 
 "Manage Sessions/Saves",
 "Visualise/Graph Data"]
@@ -41,21 +47,79 @@ def UserInfo():
     print("-----------------------")
     for item, data in user_data.items():
         print(f"{item}: {data}")
+    print("-----------------------")
+    print("1. Set User Location")
+    print("2. Manage API Key")
+    print("3. Back")
+    print("-----------------------")
+    userChoice = input("What would you like to do?")
+    if userChoice == '1':
+        print(f'You currently have your location set as {user_data['location']}')
+        user_data["location"] = input("Set your location: ")
+        return(user_data["location"])
+    elif userChoice == '2':
+        print()
+    elif userChoice == '3':
+        print()
+    else:
+        print('An error has occurred with your input.')
+
+
+        
     """This will be where users input their locations, keys and other similar info/files.
     This is also where users can manage what data is stored in the program.
     This is where security is more important (i believe) so im gonna need help with this."""
 
-def dataDisplayGeneral():
-    pass
-    """this will be for general weather data in a large range (user location or specified)"""
+def dataForecast():
 
-def dataDisplayPrecise():
     pass
-    """This will be for precise, user location based weather data"""
+    """this will be for future weather data"""
+
+def locationalFetch(userCity):
+    #full url for fetching current weather, as shown in the docs for the weatherAPI
+    completeURL = f"{API_base_url}/current.json?key={API_key}&q={userCity}"
+    
+    #Sends HTML request to API
+    response_output = requests.get(completeURL)
+
+    #Checks status code to verify request has gone through.
+    if response_output.status_code == 200:
+        return response_output.json()
+    else:
+        print("An error has occurred.")
+        return None
+    """This will be for fetching precise, user location based weather data"""
+
+def displayInfo(fetched_data):
+    #?
+    if fetched_data:
+        #documentation on weatherAPI doc page, as well as weatherAPI explorer.
+        #Json files/dictionaries with values of current, sub values of 
+        # temp, conditions, and some further sub values like text (sunny, rainy, etc.)
+        currentTemp = fetched_data["current"]["temp_c"]
+        weatherConditions = fetched_data["current"]['condition']['text']
+        print(f"current temp in {user_data['location']} is {currentTemp} degrees celsius.\nThe current weather condition in {user_data['location']} is {weatherConditions}")
+    else:
+        print("An error occurred with your request.")
+
 
 def SaveSessions():
-    pass
-    """If possible, this is where user activity can be saved by the user, loaded, or deleted."""
+    filename = 'userData.json'
+    try:
+        print("working")
+
+        '''python cannot json dump to just 'filename', as it is a string.
+        We use the as _filename to give the json exactly where to dump the data
+        If it was simply dumping to  a string, it wouldn't be able to actually process data dump.
+        Gemini/Google AI Mode told me about this bridge-map model, where the string is a map, and
+        the file object is the bridge. You need a bridge to drive across. you cant drive across a map.'''
+        
+        with open(filename, 'w') as _filename:
+            json.dump(user_data, _filename)
+        """If possible, this is where user activity can be saved by the user, loaded, or deleted."""
+    except FileNotFoundError:
+        print("error")
+
 
 def VisualiseData():
     pass

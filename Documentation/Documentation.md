@@ -1,13 +1,13 @@
 #   Documentation <br> 10SE Data Science
 
-This program should be able to verify API keys, and communicate with the *'openweathermap'* API to display weather information based on location for users. It should store important data (e.g. API keys, user location) securely and give users accurate, precise and/or visual weather information. It must have control factors for events that could cause issues with the programs functionality (e.g. API is down, no internet).
+This program should be able to verify API keys, and communicate with the *'WeatherAPI'* to display weather information based on location for users. It should store important data (e.g. API keys, user location) securely and give users accurate, precise and/or visual weather information. It must have control factors for events that could cause issues with the programs functionality (e.g. API is down, no internet).
 
 ##  Functional Requirements 
 
 ### User Requirements
 
 **User Interaction to load Data**
-- User can load raw data from a database by fetching and verifying the **openweathermap**  API and the users API key. User and program use different libraries and modules.
+- User can load raw data from a database by fetching and verifying the **WeatherAPI** and the users API key. User and program use different libraries and modules.
 
 **Data Display**
 - User can load and view the stored data/database in different display forms (e.g. general, precise, graphs).
@@ -17,7 +17,7 @@ This program should be able to verify API keys, and communicate with the *'openw
 **User Option and Filtered, Raw and Visualised Data.**
 - User interacts with the program by inputting a choice (using CLI) from a list of options to choose which data/data format to display. Program uses different modules for different purposes, to give user the chosen data output.
 
-- Program can access the [Weather] API to communicate with, and exchange data from the Weather database, so it can display the data for the user.
+- Program can access the [Weather] API to communicate with, and exchange data from the database, so it can display the data for the user.
 
 ### Core Features
 -   The core feature of the program is using an API to exchange data between a client and a database, as well as using different tools/libraries to manipulate the data for processing and analysis.

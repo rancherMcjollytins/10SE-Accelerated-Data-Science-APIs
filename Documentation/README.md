@@ -10,5 +10,5 @@ pip install -r requirements.txt
 into a command terminal (Use a virtual environment for best practice).
 
 ### API Key
-You will need to use your own API Key. Sign up for free at 
-'http://api.weatherapi.com/v1'
+You will need the API Key in a file called apikeys.txt.
+I have the keys in a personal file, and will need to give it to you.
