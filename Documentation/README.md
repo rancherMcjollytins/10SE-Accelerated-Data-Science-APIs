@@ -8,3 +8,7 @@ To use requirements.txt and install packages faster, run:
 pip install -r requirements.txt
 ```
 into a command terminal (Use a virtual environment for best practice).
+
+### API Key
+You will need to use your own API Key. Sign up for free at 
+'http://api.weatherapi.com/v1'
