@@ -366,3 +366,21 @@ def UserHelp():
             print("That is not an option!")
 
 ```
+
+## Maintenance
+- Constant updates to maintain program and suit different additions to the API
+- Testing and user feedback to identify API errors
+- Ease of transferability in case of API Shut down
+
+- Implement testing software to ensure all python/dependencies are up to date.
+- Manually maintain and observe/identify Python/dependency updates.
+
+- If a bug is found after deployment, sandboxing/version control will allow the program to be functional for users or in case of discovered errors, while giving the developer an opportunity to inspect and debug their program.
+
+**Final Evaluation**
+While the key parts of my program (Data fetching and display) are functional, some other functions are not (loading, display, etc.). This significantly affects the overall functionality of the project. I decided against data filtering, and while the weather data can be viewed in different formats, visualised data is not functional. The CLI is basic and navigable, but can become quickly cluttered and confusing. The help tab is good for ensuring users have clear directions on how to use the program. Most functions have error fallbacks.
+
+The program does not use a GUI for aesthetics. It does use a requirements.txt file and can transfer data with the API relatively efficiently.
+
+In another project, a primary improvement for me would be time management and planning how much time is invested in specific tasks.
+
