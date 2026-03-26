@@ -1,19 +1,26 @@
-from datamodule import user_options, user_data, API_key, check_dependencies, locationalFetch, VisualiseData, UserInfo, SaveSessions, displayInfo
+from datamodule import user_options, user_data, API_key, dataForecast, check_dependencies, locationalFetch, VisualiseData, UserInfo, SaveSessions, displayInfo, UserHelp
 #Just for cool aesthetics.
 from otherfunctions import slow_print
+
+dataLoad = {}
+
+from datamodule import forecast_info
+
 #For sys.exit() to close the program
 import sys
-
+import os
+#clears command terminal.
+os.system('cls')
 def main_process():
     slow_print("Welcome to my WeatherAPI Program!", '')
     print()
-    print("-----------------------")
 
     while True:
         userChoice = ""
+        print("-----------------------")
         for index, value in enumerate(user_options, 1):
             print(f"{index}. {value}")
-        print("5. Quit")
+
         print("-----------------------")
         
         userChoice = input("Option: ")
@@ -26,14 +33,19 @@ def main_process():
         elif userChoice.strip() == "4":
             displayInfo(locationalFetch(user_data['location']))
         elif userChoice.strip() == "5":
-            SaveSessions(user_data)
+            #load broken
+           SaveSessions(user_data)
+           #?
         elif userChoice.strip() == "6":
-            pass
+            VisualiseData()
         elif userChoice.strip() == "7":
+            UserHelp()
+        elif userChoice.strip() == '8':
+            dataForecast(None, user_data['location'])
+        elif userChoice.strip() == "9":
             print("Closing the program.")
             sys.exit()
         else:
             print("That is not an option!")
 
-print(API_key)
 main_process()
