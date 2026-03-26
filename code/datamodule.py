@@ -49,7 +49,7 @@ def UserInfo():
         print(f"{item}: {data}")
     print("-----------------------")
     print("1. Set User Location")
-    print("2. Manage API Key")
+    print("2. View API Key")
     print("3. Back")
     print("-----------------------")
     userChoice = input("What would you like to do?")
@@ -58,7 +58,7 @@ def UserInfo():
         user_data["location"] = input("Set your location: ")
         return(user_data["location"])
     elif userChoice == '2':
-        print()
+        print(f'You have set your API Key as {user_data['API Key']}')
     elif userChoice == '3':
         print()
     else:
@@ -75,6 +75,7 @@ def dataForecast():
     pass
     """this will be for future weather data"""
 
+#This will be for fetching precise, user location based weather data
 def locationalFetch(userCity):
     #full url for fetching current weather, as shown in the docs for the weatherAPI
     completeURL = f"{API_base_url}/current.json?key={API_key}&q={userCity}"
@@ -88,7 +89,6 @@ def locationalFetch(userCity):
     else:
         print("An error has occurred.")
         return None
-    """This will be for fetching precise, user location based weather data"""
 
 def displayInfo(fetched_data):
     #?
@@ -106,7 +106,7 @@ def displayInfo(fetched_data):
 def SaveSessions():
     filename = 'userData.json'
     try:
-        print("working")
+        print("Saving Data to Json...")
 
         '''python cannot json dump to just 'filename', as it is a string.
         We use the as _filename to give the json exactly where to dump the data
@@ -118,7 +118,7 @@ def SaveSessions():
             json.dump(user_data, _filename)
         """If possible, this is where user activity can be saved by the user, loaded, or deleted."""
     except FileNotFoundError:
-        print("error")
+        print("An error occurred when saving!")
 
 
 def VisualiseData():
