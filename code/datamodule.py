@@ -8,8 +8,11 @@ except ImportError:
     print("An error occurred with your packages/libraries. See readme for info about requirements.txt")
 
 API_base_url = "http://api.weatherapi.com/v1"
-with open('apikeys.txt') as file:
-    API_key = file.read()
+try:
+    with open('apikeys.txt') as file:
+        API_key = file.read()
+except:
+    print("Could not retrieve apikeys.txt file. Are you sure you have it on your PC?")
 
 user_data = {
     'location':"",
@@ -105,20 +108,36 @@ def displayInfo(fetched_data):
 
 def SaveSessions():
     filename = 'userData.json'
-    try:
-        print("Saving Data to Json...")
+    print("1. Save")
+    print("2. Load")
+    userChoice = input("What would you like to do?")
+    if userChoice.strip() == '1':
+        try:
+            print("Saving Data to Json...")
 
-        '''python cannot json dump to just 'filename', as it is a string.
-        We use the as _filename to give the json exactly where to dump the data
-        If it was simply dumping to  a string, it wouldn't be able to actually process data dump.
-        Gemini/Google AI Mode told me about this bridge-map model, where the string is a map, and
-        the file object is the bridge. You need a bridge to drive across. you cant drive across a map.'''
+            '''python cannot json dump to just 'filename', as it is a string.
+            We use the as _filename to give the json exactly where to dump the data
+            If it was simply dumping to  a string, it wouldn't be able to actually process data dump.
+            Gemini/Google AI Mode told me about this bridge-map model, where the string is a map, and
+            the file object is the bridge. You need a bridge to drive across. you cant drive across a map.'''
+            
+            with open(filename, 'w') as _filename:
+                json.dump(user_data, _filename)
+            """If possible, this is where user activity can be saved by the user, loaded, or deleted."""
+        except FileNotFoundError:
+            print("An error occurred when saving!")
+    elif userChoice.strip() == '2':
+        print("Attempting to load data...")
+        try:
+            #'r' as default for reading
+            with open(filename) as _filename:
+                user_data = json.load(_filename)
+        #AI helped get this error in except
+        except json.JSONDecodeError:
+            print("An error occurred when loading!")
         
-        with open(filename, 'w') as _filename:
-            json.dump(user_data, _filename)
-        """If possible, this is where user activity can be saved by the user, loaded, or deleted."""
-    except FileNotFoundError:
-        print("An error occurred when saving!")
+        else:
+            print("An error has occurred!")
 
 
 def VisualiseData():
