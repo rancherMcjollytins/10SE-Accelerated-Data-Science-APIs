@@ -26,7 +26,7 @@ def main_process():
         elif userChoice.strip() == "4":
             displayInfo(locationalFetch(user_data['location']))
         elif userChoice.strip() == "5":
-            SaveSessions()
+            SaveSessions(user_data)
         elif userChoice.strip() == "6":
             pass
         elif userChoice.strip() == "7":

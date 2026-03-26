@@ -55,7 +55,7 @@ def UserInfo():
     print("2. View API Key")
     print("3. Back")
     print("-----------------------")
-    userChoice = input("What would you like to do?")
+    userChoice = input("What would you like to do?: ")
     if userChoice == '1':
         print(f'You currently have your location set as {user_data['location']}')
         user_data["location"] = input("Set your location: ")
@@ -106,11 +106,11 @@ def displayInfo(fetched_data):
         print("An error occurred with your request.")
 
 
-def SaveSessions():
+def SaveSessions(_user_data):
     filename = 'userData.json'
     print("1. Save")
     print("2. Load")
-    userChoice = input("What would you like to do?")
+    userChoice = input("What would you like to do? ")
     if userChoice.strip() == '1':
         try:
             print("Saving Data to Json...")
@@ -121,8 +121,9 @@ def SaveSessions():
             Gemini/Google AI Mode told me about this bridge-map model, where the string is a map, and
             the file object is the bridge. You need a bridge to drive across. you cant drive across a map.'''
             
+            #user_data is a dictionary that saveSessions doesn't access. it can be written as a parameter.
             with open(filename, 'w') as _filename:
-                json.dump(user_data, _filename)
+                json.dump(_user_data, _filename)
             """If possible, this is where user activity can be saved by the user, loaded, or deleted."""
         except FileNotFoundError:
             print("An error occurred when saving!")
@@ -131,13 +132,11 @@ def SaveSessions():
         try:
             #'r' as default for reading
             with open(filename) as _filename:
-                user_data = json.load(_filename)
-        #AI helped get this error in except
-        except json.JSONDecodeError:
-            print("An error occurred when loading!")
-        
-        else:
-            print("An error has occurred!")
+                _user_data = json.load(_filename)
+        except AttributeError:
+            print("An error occurred when loading!")        
+    else:
+        print("An error has occurred!")
 
 
 def VisualiseData():
